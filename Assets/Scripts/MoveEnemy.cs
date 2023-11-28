@@ -16,14 +16,12 @@ public class MoveEnemy : MonoBehaviour
     void Start()
     {
         zBoundary= Camera.main.aspect* Camera.main.orthographicSize -5.0f;
-       // EnemyManager= GameObject.FindWithTag("EnemyManager");
-        //enemyBehaviour= EnemyManager.GetComponent<EnemyBehaviour>();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-       // enemySpeed= enemyBehaviour.EnemySpeed;
         transform.Translate(Vector3.down*enemySpeed*Time.deltaTime);
 
         DestroyOutOfBounds();

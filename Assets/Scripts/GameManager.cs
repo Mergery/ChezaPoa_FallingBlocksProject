@@ -88,14 +88,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         Time.timeScale= 1f;
-        // try
-        // {
-        //     serialPort.Open();
-        // }
-        // catch (System.Exception e)
-        // {
-        //     Debug.LogError("Error opening serial port: " + e.Message);
-        // }
     }
 
     public void LoadHighScore()

@@ -14,11 +14,11 @@ public class PlayerController : MonoBehaviour
 
     float screenWorldUnits;
     float sideSpeed = 0.2f;
-    //float sideForce= 100f;
+    
     bool gameStarted;
     float smoothing;
 
-    public SerialPort serialPort = new SerialPort("COM12", 115200); // Adjust the port and baud rate as needed
+    public SerialPort serialPort = new SerialPort("COM12", 115200); 
 
     void Start()
     {
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     void ParseArduinoData(string data)
     {
-        // Assuming the Arduino sends data in the format "ax,ay,az"
+        // Arduino sends data in the format "ax,ay,az"
         string[] values = data.Split(',');
 
         if (values.Length == 3)
@@ -68,15 +68,11 @@ public class PlayerController : MonoBehaviour
             float ay = float.Parse(values[1]);
             float az = float.Parse(values[2]);
 
-            // Use the data to control the player's movement
-            // Example: transform.Translate(Vector3.right * ax * Time.deltaTime * sideSpeed);
-
 
             float movement = ax * Time.deltaTime * sideSpeed;
 
             // Move the player left or right based on accelerometer data
            transform.Translate(-Vector3.right * movement);
-           //playerRb.AddForce(Vector3.right * ax* Time.deltaTime * sideForce);
 
             // Limit player movement within the screen bounds
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -screenWorldUnits, screenWorldUnits), transform.position.y, transform.position.z);

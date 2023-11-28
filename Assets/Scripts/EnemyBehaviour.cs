@@ -50,7 +50,6 @@ public class EnemyBehaviour : MonoBehaviour
      {     
          gameStarted= GameManagerScript.isGameStarted;   
          Blocks= upgradeSpawners.blocksPassed;
-         //Debug.Log(Blocks);
      }
 
 
